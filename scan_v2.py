@@ -83,7 +83,7 @@ def send_email_alert(tx_hash, to_address, value, chain_id):
 
 def check_transactions():
     domain = CHAIN_DOMAINS.get(CHAIN_ID, 'api.etherscan.io')
-    url = f'https://{domain}/api?module=account&action=txlist&address={DEPLOYER_WALLET}&sort=desc&apikey={ETHERSCAN_API_KEY}'
+    url = f'https://{domain}/v2/api?module=account&action=txlist&address={DEPLOYER_WALLET}&sort=desc&apikey={ETHERSCAN_API_KEY}'
     
     try:
         response = requests.get(url, timeout=10)
